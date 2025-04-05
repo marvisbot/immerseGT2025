@@ -18,6 +18,8 @@
 
 //@ui {"widget":"group_start", "label":"API Configuration"}
 //@input string hfApiToken {"hint":"Enter your Hugging Face API token"}
+//@input string openaiApiKey {"hint":"Enter your OpenAI API token"}
+//@input bool translateToSpanish {"label": "Translate Detections to Spanish", "default": false}
 //@input Component.Text logs
 //@ui {"widget":"group_end"}
 
@@ -37,6 +39,7 @@ var remoteServiceModule = require("LensStudio:RemoteServiceModule");
 // others
 var activePrefabs = []; // Array to track active detection prefabs
 var offsetPositioning = 20; // Offset for prefab positioning - regulate based on your context
+var translatedObjects = {}; // Cache for translated object names
 
 script.createEvent("OnStartEvent").bind(() => {
   onStart();
@@ -226,7 +229,7 @@ async function createDetectionPrefabAsync(detection) {
           const offsetY = (vertex[1] - centerY) * scaleFactor;
           const localZ = 0; // Keep Z as 0 as requested
 
-          // Set the local position of the child (relative to prefab’s local origin)
+          // Set the local position of the child (relative to prefab's local origin)
           const childTransform = child.getTransform();
           if (!childTransform) {
             debugLog(`Error: No transform found for child ${i}`);
@@ -278,6 +281,74 @@ async function createDetectionPrefabAsync(detection) {
     debugLog("Error in createDetectionPrefab: " + error.message);
   }
 }
+
+// Function to translate object names to Spanish using OpenAI API
+async function translateToSpanish(objectNames) {
+  if (!script.translateToSpanish || !script.openaiApiKey) {
+    debugLog("Translation disabled or OpenAI API key not provided");
+    return objectNames;
+  }
+
+  try {
+    debugLog("Translating object names to Spanish...");
+    
+    // Create a prompt for the OpenAI API
+    const prompt = `Translate the following object names to Spanish: ${objectNames.join(', ')}. 
+    Return only the translated names in the same order, separated by commas.`;
+    
+    const apiUrl = "https://api.openai.com/v1/chat/completions";
+    
+    const request = new Request(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${script.openaiApiKey}`
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content: "You are a helpful translator that translates object names from English to Spanish."
+          },
+          {
+            role: "user",
+            content: prompt
+          }
+        ],
+        temperature: 0.3,
+        max_tokens: 100
+      })
+    });
+    
+    const response = await remoteServiceModule.fetch(request);
+    
+    if (!response.ok) {
+      throw new Error(`OpenAI API responded with status: ${response.status}`);
+    }
+    
+    const responseData = JSON.parse(await response.text());
+    const translatedText = responseData.choices[0].message.content.trim();
+    
+    // Parse the translated text into an array
+    const translatedNames = translatedText.split(',').map(name => name.trim());
+    
+    debugLog(`Translated objects: ${translatedNames.join(', ')}`);
+    
+    // Create a mapping of original names to translated names
+    objectNames.forEach((originalName, index) => {
+      if (index < translatedNames.length) {
+        translatedObjects[originalName] = translatedNames[index];
+      }
+    });
+    
+    return translatedNames;
+  } catch (error) {
+    debugLog(`Translation error: ${error.message}`);
+    return objectNames; // Return original names if translation fails
+  }
+}
+
 // Process detections sequentially
 async function processDetections(detections) {
   // Clear existing detections
@@ -291,6 +362,14 @@ async function processDetections(detections) {
   debugLog(
     `Processing ${validDetections.length} valid detections sequentially...`
   );
+  
+  // Extract unique object names for translation
+  const uniqueObjectNames = [...new Set(validDetections.map(detection => detection.class_name))];
+  
+  // Translate object names if enabled
+  if (script.translateToSpanish && script.openaiApiKey) {
+    await translateToSpanish(uniqueObjectNames);
+  }
 
   // Process each detection one at a time
   for (let i = 0; i < validDetections.length; i++) {
@@ -299,7 +378,15 @@ async function processDetections(detections) {
         validDetections[i].class_name
       }`
     );
-    await createDetectionPrefabAsync(validDetections[i]);
+    
+    // Create a copy of the detection with translated class name if available
+    const detection = {...validDetections[i]};
+    if (translatedObjects[detection.class_name]) {
+      detection.class_name = translatedObjects[detection.class_name];
+      debugLog(`Translated class name: ${detection.class_name}`);
+    }
+    
+    await createDetectionPrefabAsync(detection);
 
     // Add a small delay between objects to ensure clean state
     await delay(0.2);

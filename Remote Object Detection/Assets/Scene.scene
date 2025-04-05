@@ -2309,6 +2309,7 @@
   ScriptAsset: !<reference> 237c2d67-1b55-45c2-ad1e-b2c00745e650
   ScriptInputsDefault:
     hfApiToken: true
+    openaiApiKey: true
     prefabBillboardEnabled: true
   ScriptTypesDefault:
     {}
@@ -2324,6 +2325,8 @@
       distanceThreshold: !<float> 10.000000
       sendDelay: !<float> 5.000000
       hfApiToken: ""
+      openaiApiKey: ""
+      translateToSpanish: true
       logs: !<reference.Text> a45d9874-f37c-41c9-b74b-fc5b8b804b30
       detectionPrefab: !<reference.Asset> 08db7d39-e871-431e-bb0d-483955ee5a3b
       prefabBillboardEnabled: false

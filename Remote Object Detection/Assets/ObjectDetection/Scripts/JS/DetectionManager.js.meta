@@ -36,10 +36,12 @@
     logConfig: false
     logs: false
     modelSize: false
+    openaiApiKey: false
     pinholeCapture: false
     prefabBillboardEnabled: false
     sendDelay: false
     texture: false
+    translateToSpanish: false
   ScriptTypesHidden:
     {}
   DefaultScriptInputs:
@@ -72,6 +74,8 @@
       sendDelay: !<float> 0.000000
       worldQueryAdjuster: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
       useWorldQueryHitAdjustment: false
+      openaiApiKey: ""
+      translateToSpanish: false
   ScriptTypes:
     -
       {}

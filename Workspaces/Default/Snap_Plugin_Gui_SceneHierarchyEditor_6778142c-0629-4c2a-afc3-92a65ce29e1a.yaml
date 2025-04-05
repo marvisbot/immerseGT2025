@@ -1,0 +1,7 @@
+CollapsedEntities:
+  type: stringset
+  value:
+    size: 1
+    values:
+      - 6f077e82-270e-4b51-8817-3f348eb1932b
+  options: 4
