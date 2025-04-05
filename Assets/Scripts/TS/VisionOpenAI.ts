@@ -69,7 +69,7 @@ export class VisionOpenAI extends BaseScriptComponent {
             role: "system",
             content:
               "You are a helpful AI assistant that works for Snapchat that has access to the view that the user is looking at using Augmented Reality Glasses." +
-              " The user is asking for help with the following image and text. Keep it short like under 30 words. Be a little funny and keep it positive.",
+              " The user is asking for help with the following image and text. Keep it short like under 30 words.",
           },
           {
             role: "user",
