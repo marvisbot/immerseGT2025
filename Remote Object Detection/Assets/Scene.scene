@@ -2320,12 +2320,12 @@
       cameraTextureScript: !<reference.ScriptComponent> c21602bd-9514-4d0b-b99f-500baa21511e
       logConfig: !<reference.ScriptComponent> 11ede807-12ca-423c-b30b-d8fd2f9b1d7e
       modelSize: Medium - Balanced performance and accuracy
-      confidenceThreshold: 0.850000
-      distanceThreshold: !<float> 20.000000
-      sendDelay: !<float> 1.000000
+      confidenceThreshold: 0.800000
+      distanceThreshold: !<float> 10.000000
+      sendDelay: !<float> 5.000000
       hfApiToken: ""
       logs: !<reference.Text> a45d9874-f37c-41c9-b74b-fc5b8b804b30
-      detectionPrefab: !<reference.Asset> a8fa13f6-1344-40ca-a493-417b52ac159e
+      detectionPrefab: !<reference.Asset> 08db7d39-e871-431e-bb0d-483955ee5a3b
       prefabBillboardEnabled: false
       pinholeCapture: !<reference.ScriptComponent> 3ce807c2-3ada-4d2f-8a53-e45e14a136e5
   ScriptTypes:
