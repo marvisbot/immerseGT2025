@@ -366,7 +366,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: -1.000000, y: 0.000000, z: 2.000000}
+    position: {x: 3.030791, y: 0.187873, z: 0.337036}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.500000, y: 1.500000, z: 1.500000}
     hasSegmentScaleCompensation: false
@@ -979,12 +979,12 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: "Click to Detect "
+  Text: "Click to Translate Surroundings "
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 40
+  FontSize: 48
   Font: !<reference> 709203b6-8b83-40d7-8dda-e5adc4fd2875
   LayoutRect:
     left: -7.500000
@@ -1445,6 +1445,7 @@
   Enabled: true
   ScriptAsset: !<reference> 0b07086c-6e0a-456d-a26e-ea930f29a963
   ScriptInputsDefault:
+    speechifyAPIKey: true
     voiceId: true
     audioFormat: true
     language: true
@@ -1454,7 +1455,7 @@
     "":
       audioComponent: !<reference.AudioComponent> 492168a4-ffaf-41ab-b406-2f2f1a91463f
       audioOutputAsset: !<reference.AudioTrackAsset> cce329cb-f90b-4189-8381-7a3de8811899
-      speechifyAPIKey: z0bwOZUzccCek1oUNB8UXweHmXJF_4_kfKZZTiQt5AQ=
+      speechifyAPIKey: ""
       voiceId: alejandro
       audioFormat: wav
       language: es-ES
@@ -1947,7 +1948,7 @@
   ScriptInputs:
     "":
       autoShowHide: false
-      innerSize: !<Vec2> {x: 4.000000, y: 4.000000}
+      innerSize: !<Vec2> {x: 20.000000, y: 10.000000}
       border: !<float> 2.000000
       constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
       allowScaling: true
@@ -1998,10 +1999,10 @@
   UnitType: World
   SortingType: Hierarchy
   WorldSpaceRect:
-    left: -0.500000
-    bottom: -0.500000
-    right: 0.500000
-    top: 0.500000
+    left: -1.000000
+    bottom: -1.000000
+    right: 1.000000
+    top: 1.000000
 - !<SceneObject/9827271d-d758-4004-bc20-03cf1e136d1c>
   PrefabRemaps:
     []
@@ -2039,7 +2040,7 @@
   Enabled: true
   Shape: !<Sphere>
     FitVisual: false
-    Radius: 0.500000
+    Radius: 1.000000
   Matter: !<reference> 00000000-0000-0000-0000-000000000000
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2057,7 +2058,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 3.250000, y: 2.000000, z: 1.000000}
+    position: {x: -1.907093, y: 2.738678, z: 0.342133}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -2172,7 +2173,8 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: "Logs "
+  Text: |+
+    
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2366,6 +2368,8 @@
   Enabled: true
   ScriptAsset: !<reference> 237c2d67-1b55-45c2-ad1e-b2c00745e650
   ScriptInputsDefault:
+    hfApiToken: true
+    openaiApiKey: true
     prefabBillboardEnabled: true
   ScriptTypesDefault:
     {}
@@ -2379,12 +2383,13 @@
       modelSize: Medium - Balanced performance and accuracy
       confidenceThreshold: 0.800000
       distanceThreshold: !<float> 500.000000
-      sendDelay: !<float> 2.000000
-      hfApiToken: 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
-      openaiApiKey: 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
+      sendDelay: 0.100000
+      hfApiToken: ""
+      openaiApiKey: ""
       translateToSpanish: true
       detectionPrefab: !<reference.Asset> 34558c10-7f16-47a0-babc-aba68210fadb
       prefabBillboardEnabled: false
+      logs: !<reference.Text> a45d9874-f37c-41c9-b74b-fc5b8b804b30
       pinholeCapture: !<reference.ScriptComponent> 3ce807c2-3ada-4d2f-8a53-e45e14a136e5
   ScriptTypes:
     "":
@@ -2483,10 +2488,10 @@
   PrefabRemaps:
     []
   Name: Logger
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 2.610100, y: -0.329311, z: 1.000000}
+    position: {x: -1.700857, y: -1.556377, z: 1.329926}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -2659,7 +2664,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    position: {x: 0.000000, y: 0.000000, z: -5.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -2906,10 +2911,10 @@
   PrefabRemaps:
     []
   Name: Logs
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 2.598858, y: -4.669202, z: 1.000000}
+    position: {x: -1.737024, y: -5.069806, z: 1.165894}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -2962,7 +2967,9 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: Logger
+  Text: |
+    Status
+
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000

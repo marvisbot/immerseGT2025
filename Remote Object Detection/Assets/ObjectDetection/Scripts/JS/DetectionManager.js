@@ -26,6 +26,7 @@
 //@input Asset detectionPrefab {"hint":"Prefab to use for detection"}
 //@input bool prefabBillboardEnabled {"label": "Enable Prefab Billboarding", "default": false}
 //@ui {"widget":"group_end"}
+//@input Component.Text logs {"label": "Logs"}
 
 //@input Component.ScriptComponent pinholeCapture {"Pinhole Capture": "Pinhole Camera}
 
@@ -102,6 +103,7 @@ async function handleTriggerEndSingleDetection(event) {
   try {
     await processTexture();
     debugLog("Single detection completed");
+    setStatus("Detecting Surroundings...");
   } catch (e) {
     debugLog(`Error in single detection: ${e}`);
   }
@@ -287,6 +289,7 @@ async function createDetectionPrefabAsync(detection) {
 async function translateToSpanish(objectNames) {
   if (!script.translateToSpanish || !script.openaiApiKey) {
     debugLog("Translation disabled or OpenAI API key not provided");
+    setStatus("Translating what you see...");
     return objectNames;
   }
 
@@ -394,6 +397,7 @@ async function processDetections(detections) {
   }
 
   debugLog(`Finished processing ${validDetections.length} detections`);
+    setStatus("Translation complete!")
 }
 
 function debugLog(message) {
@@ -408,6 +412,12 @@ function debugLog(message) {
   // Debug log using TypeScript component's functionality
   if (script.logConfig && script.logConfig.debugModeEnabled) {
     print(message); // When debug mode is enabled, print the message
+  }
+}
+
+function setStatus(status) {
+  if (script.logs) {
+    script.logs.text = status;
   }
 }
 
