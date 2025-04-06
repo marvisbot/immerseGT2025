@@ -2,10 +2,6 @@
 //@input SceneObject buttonSingleDetection {"hint":"Drag the SceneObject that has the Interactable component"}
 //@ui {"widget":"group_end"}
 
-
-
-
-
 var remoteServiceModule = require("LensStudio:RemoteServiceModule");
 
 script.createEvent("OnStartEvent").bind(() => {

@@ -51,8 +51,10 @@ function debugLog(message) {
 
 async function handleTriggerEndSingleDetection(event) {
     var inputValue = script.inputText.text;
-    script.api.generateAndPlaySpeech(inputValue);
-    debugLog("Button pressed! Text output: " + inputValue);  
+    print(global.scene.getRootObject(5).name);
+    global.scene.getRootObject(5).getComponent("Component.ScriptComponent").api.generateAndPlaySpeech(inputValue);
+    // ttsComponent.api.generateAndPlaySpeech(inputValue);
+    debugLog("Button pressed! Text output: " + inputValue);
 }
   
 

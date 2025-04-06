@@ -2383,7 +2383,7 @@
       openaiApiKey: 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
       translateToSpanish: true
       logs: !<reference.Text> a45d9874-f37c-41c9-b74b-fc5b8b804b30
-      detectionPrefab: !<reference.Asset> dff507ee-00f8-4e4a-a76f-ff550acc04fa
+      detectionPrefab: !<reference.Asset> 34558c10-7f16-47a0-babc-aba68210fadb
       prefabBillboardEnabled: false
       pinholeCapture: !<reference.ScriptComponent> 3ce807c2-3ada-4d2f-8a53-e45e14a136e5
   ScriptTypes:

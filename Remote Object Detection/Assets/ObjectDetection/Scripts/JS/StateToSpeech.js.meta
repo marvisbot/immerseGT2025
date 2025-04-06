@@ -34,6 +34,7 @@
   DefaultScriptInputs:
     - inputText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       ttsComponent: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      audioGenerator: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
