@@ -6,6 +6,7 @@
     - !<own> ff6c151e-214e-4216-8d76-8d4244e2a6e8
     - !<own> eaecd34e-2812-434a-a164-7f6f90fc5ef1
     - !<own> d387093b-00a9-4e77-827f-d97a6674158b
+    - !<own> af6e1d93-7865-44e6-912b-3d03e67c21f0
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -933,6 +934,23 @@
     - !<own> a813a7a6-1822-4279-8348-2c314e6ab150
   Components:
     []
+- !<AudioComponent/492168a4-ffaf-41ab-b406-2f2f1a91463f>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/4971d6a8-a5fe-431e-b815-07883d1bd9b4>
   PrefabRemaps:
     []
@@ -1418,6 +1436,29 @@
     - !<own> 31df5cf9-9877-4359-9161-92964449a557
   Components:
     - !<own> 32346fd9-8168-4666-87d9-78060a1ebed2
+- !<ScriptComponent/70fb2860-7fae-4717-9bdc-19c0f4977b69>
+  PrefabRemaps:
+    []
+  Name: SpanishTTSGenerator
+  Enabled: true
+  ScriptAsset: !<reference> 0b07086c-6e0a-456d-a26e-ea930f29a963
+  ScriptInputsDefault:
+    voiceId: true
+    audioFormat: true
+    language: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      audioComponent: !<reference.AudioComponent> 492168a4-ffaf-41ab-b406-2f2f1a91463f
+      audioOutputAsset: !<reference.AudioTrackAsset> cce329cb-f90b-4189-8381-7a3de8811899
+      speechifyAPIKey: z0bwOZUzccCek1oUNB8UXweHmXJF_4_kfKZZTiQt5AQ=
+      voiceId: alejandro
+      audioFormat: wav
+      language: es-ES
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/711f9787-d880-4475-8f0a-0cf6b2492a6b>
   PrefabRemaps:
     []
@@ -2301,6 +2342,22 @@
     - !<own> 0deb320d-887e-4b1a-b988-f11b2c4d951b
   Components:
     []
+- !<SceneObject/af6e1d93-7865-44e6-912b-3d03e67c21f0>
+  PrefabRemaps:
+    []
+  Name: SpanishTTSGenerator
+  Enabled: true
+  Layers: 1
+  LocalTransform:
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    hasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 70fb2860-7fae-4717-9bdc-19c0f4977b69
+    - !<own> 492168a4-ffaf-41ab-b406-2f2f1a91463f
 - !<ScriptComponent/b190f606-7e46-4aa6-b4b0-67b485a00553>
   PrefabRemaps:
     []
@@ -2308,7 +2365,6 @@
   Enabled: true
   ScriptAsset: !<reference> 237c2d67-1b55-45c2-ad1e-b2c00745e650
   ScriptInputsDefault:
-    hfApiToken: true
     prefabBillboardEnabled: true
   ScriptTypesDefault:
     {}
@@ -2323,8 +2379,8 @@
       confidenceThreshold: 0.800000
       distanceThreshold: !<float> 500.000000
       sendDelay: !<float> 2.000000
-      hfApiToken: ""
-      openaiApiKey: ""
+      hfApiToken: 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
+      openaiApiKey: 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
       translateToSpanish: true
       logs: !<reference.Text> a45d9874-f37c-41c9-b74b-fc5b8b804b30
       detectionPrefab: !<reference.Asset> a8fa13f6-1344-40ca-a493-417b52ac159e
