@@ -7,6 +7,7 @@
     - !<own> eaecd34e-2812-434a-a164-7f6f90fc5ef1
     - !<own> d387093b-00a9-4e77-827f-d97a6674158b
     - !<own> af6e1d93-7865-44e6-912b-3d03e67c21f0
+    - !<own> 020ee714-1399-495b-99f0-f04b977c4f6f
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       []
@@ -184,7 +185,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: -14.485863, y: -0.572636, z: 0.000000}
+    position: {x: -53.310253, y: -0.572636, z: 1.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 17.000000, y: 17.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -365,7 +366,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 0.218857, y: 3.605022, z: 2.000000}
+    position: {x: -1.000000, y: 0.000000, z: 2.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.500000, y: 1.500000, z: 1.500000}
     hasSegmentScaleCompensation: false
@@ -983,7 +984,7 @@
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 48
+  FontSize: 40
   Font: !<reference> 709203b6-8b83-40d7-8dda-e5adc4fd2875
   LayoutRect:
     left: -7.500000
@@ -1295,7 +1296,8 @@
   MeshShadowMode: None
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
-  Text: Detect
+  Text: |+
+    
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -1700,7 +1702,7 @@
   ShadowDensity: 1.000000
   Materials:
     - !<reference> 780a1cd7-1fdc-450e-954a-caf4fe4374f3
-  Mesh: !<reference> a6361dc2-6074-45f7-b985-3924776714f4
+  Mesh: !<reference> 16e2a3b8-4952-40bf-b1bb-0f2b6d31fc5c
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false
@@ -1932,7 +1934,6 @@
   Enabled: true
   ScriptAsset: !<reference> 14c9f79e-3a55-43d4-bbf6-75c0d6d2e2a2
   ScriptInputsDefault:
-    border: true
     constantPadding: true
     allowScaling: true
     autoScaleContent: true
@@ -1946,8 +1947,8 @@
   ScriptInputs:
     "":
       autoShowHide: false
-      innerSize: !<Vec2> {x: 36.000000, y: 16.000000}
-      border: !<float> 4.000000
+      innerSize: !<Vec2> {x: 4.000000, y: 4.000000}
+      border: !<float> 2.000000
       constantPadding: !<Vec2> {x: 0.000000, y: 0.000000}
       allowScaling: true
       autoScaleContent: true
@@ -1997,10 +1998,10 @@
   UnitType: World
   SortingType: Hierarchy
   WorldSpaceRect:
-    left: -3.750000
-    bottom: -1.050000
-    right: 3.750000
-    top: 1.050000
+    left: -0.500000
+    bottom: -0.500000
+    right: 0.500000
+    top: 0.500000
 - !<SceneObject/9827271d-d758-4004-bc20-03cf1e136d1c>
   PrefabRemaps:
     []
@@ -2036,9 +2037,9 @@
     []
   Name: Physics Collider
   Enabled: true
-  Shape: !<Box>
+  Shape: !<Sphere>
     FitVisual: false
-    Size: {x: 7.500000, y: 2.100000, z: 2.100000}
+    Radius: 0.500000
   Matter: !<reference> 00000000-0000-0000-0000-000000000000
   Filter: !<reference> 00000000-0000-0000-0000-000000000000
   OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
@@ -2056,7 +2057,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: 2.610100, y: 6.899359, z: 1.000000}
+    position: {x: 3.250000, y: 2.000000, z: 1.000000}
     rotation: {x: 0.000000, y: -0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -2382,7 +2383,6 @@
       hfApiToken: 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
       openaiApiKey: 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
       translateToSpanish: true
-      logs: !<reference.Text> a45d9874-f37c-41c9-b74b-fc5b8b804b30
       detectionPrefab: !<reference.Asset> 34558c10-7f16-47a0-babc-aba68210fadb
       prefabBillboardEnabled: false
       pinholeCapture: !<reference.ScriptComponent> 3ce807c2-3ada-4d2f-8a53-e45e14a136e5
@@ -2483,7 +2483,7 @@
   PrefabRemaps:
     []
   Name: Logger
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 2.610100, y: -0.329311, z: 1.000000}
@@ -2659,7 +2659,7 @@
   Enabled: true
   Layers: 1
   LocalTransform:
-    position: {x: -40.000000, y: 0.000000, z: 0.000000}
+    position: {x: 0.000000, y: 0.000000, z: 0.000000}
     rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
@@ -2743,7 +2743,6 @@
     scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     hasSegmentScaleCompensation: false
   Children:
-    - !<own> 020ee714-1399-495b-99f0-f04b977c4f6f
     - !<own> 9de5eae4-469c-4a42-ae17-73b63747dc5f
     - !<own> be7c0307-51e9-4996-aedb-4b5058d814e4
     - !<own> e01f28f1-602b-4d5f-8baa-63b0f3957776
@@ -2907,7 +2906,7 @@
   PrefabRemaps:
     []
   Name: Logs
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform:
     position: {x: 2.598858, y: -4.669202, z: 1.000000}
