@@ -1,0 +1,48 @@
+- !<AssetImportMetadata/64c345ce-f42c-4f8f-a32a-527e9033a1a7>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 0b07086c-6e0a-456d-a26e-ea930f29a963
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 0b07086c-6e0a-456d-a26e-ea930f29a963
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 1dce6fd6-c4c4-4e25-83ec-6766557e608e
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/1dce6fd6-c4c4-4e25-83ec-6766557e608e>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 2589d59b-9ca4-49ab-b1bb-955daa952061
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    audioComponent: false
+    audioFormat: false
+    audioOutputAsset: false
+    language: false
+    speechifyAPIKey: false
+    voiceId: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - audioComponent: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      audioOutputAsset: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      voice: ""
+      speechifyAPIKey: ""
+      voiceId: alejandro
+      audioFormat: wav
+      language: es-ES
+  ScriptTypes:
+    -
+      {}

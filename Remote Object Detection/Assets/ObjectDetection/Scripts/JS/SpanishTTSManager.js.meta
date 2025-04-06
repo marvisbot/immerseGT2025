@@ -1,0 +1,42 @@
+- !<AssetImportMetadata/4e8e76d2-2196-4549-807c-3a016104341d>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> e8d15248-7a2b-450d-92d8-46b8c826c505
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> e8d15248-7a2b-450d-92d8-46b8c826c505
+  PackageType: NotAPackage
+  PackagePolicy: CannotBeUnpacked
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> db92e46b-f884-429b-8872-fa04119b4dee
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/db92e46b-f884-429b-8872-fa04119b4dee>
+  SvgIcon: ""
+  Description: ""
+  InternalVersion: 0
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1d1f4552-ab30-4a1a-b600-30dea5e8f561
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  CurrentVisibility: Editable
+  MaxVisibility: Editable
+  ScriptInputsHidden:
+    buttonSingleDetection: false
+  ScriptTypesHidden:
+    {}
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  DefaultScriptInputs:
+    - speechifyAPIKey: ""
+      translateToSpanish: false
+      logs: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      detectionPrefab: !<reference.Asset> 00000000-0000-0000-0000-000000000000
+      prefabBillboardEnabled: false
+      buttonSingleDetection: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
