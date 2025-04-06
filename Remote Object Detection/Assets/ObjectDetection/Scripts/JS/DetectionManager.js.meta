@@ -34,7 +34,6 @@
     distanceThreshold: false
     hfApiToken: false
     logConfig: false
-    logs: false
     modelSize: false
     openaiApiKey: false
     pinholeCapture: false

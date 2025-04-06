@@ -20,7 +20,6 @@
 //@input string hfApiToken {"hint":"Enter your Hugging Face API token"}
 //@input string openaiApiKey {"hint":"Enter your OpenAI API token"}
 //@input bool translateToSpanish {"label": "Translate Detections to Spanish", "default": false}
-//@input Component.Text logs
 //@ui {"widget":"group_end"}
 
 //@ui {"widget":"group_start", "label":"Detection Prefab"}
@@ -256,14 +255,16 @@ async function createDetectionPrefabAsync(detection) {
 
     // Update text and color (unchanged)
     if (container.categoryAndConfidence) {
-      container.categoryAndConfidence.text = `${detection.class_name} (${(
-        detection.confidence * 100
-      ).toFixed(1)}%)`;
+      // container.categoryAndConfidence.text = `${detection.class_name} (${(
+      //   detection.confidence * 100
+      // ).toFixed(1)}%)`;
+      container.categoryAndConfidence.text = `${detection.class_name}`;
     }
 
     if (container.distanceFromCamera) {
       // Display detection distance estimate
-      container.distanceFromCamera.text = `${detection.distance.toFixed(2)} m`;
+      // container.distanceFromCamera.text = `${detection.distance.toFixed(2)} m`;
+      container.distanceFromCamera.text = ``;
     }
     if (container.polyline && container.polyline.setColor) {
       const color = detection.color;
@@ -400,9 +401,9 @@ function debugLog(message) {
   print(message);
 
   // Update script logs
-  if (script.logs) {
-    script.logs.text = message;
-  }
+  // if (script.logs) {
+  //   script.logs.text = message;
+  // }
 
   // Debug log using TypeScript component's functionality
   if (script.logConfig && script.logConfig.debugModeEnabled) {
